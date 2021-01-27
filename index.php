@@ -15,21 +15,49 @@
         <input type ="text" placeholder="name"/>
         <input type ="password" placeholder="password"/>
         <input type ="text" placeholder="email id"/>
+
         <button>Create</button>
         <p class="message">Already Registered?  <a href = "#">Login</a></p>
         </form>
 
-    <form class="login-page" action = "loginAccess.php">
+    <form class="login-page" action = "index.php">
         <input type ="text" name = "name" placeholder="name"/>
         <input type ="password" name = "password" placeholder="password"/>
+
+        <dev id = "alert">
+        <?php
+            if(empty($_GET['name']) == false && empty($_GET['password']) == false)
+            {
+                $password = $_GET["password"];
+                $name = $_GET["name"];
+    
+                if($name == "sunkite3030"){
+    
+                    if($password == "12345"){
+                        header( 'Location: root.html' );
+                    }else{
+                        echo "비밀번호가 일치하지 않습니다.";
+                    }
+                }else{
+                    echo "존재하지 않는 회원입니다.";
+                }
+            }
+        ?>
+        </dev>
+
         <button>login</button>
+
         <p class="message">Not Registered?  <a href="#">Register</a></p>
+        
+
     </form>
     </div>
     </div>
 
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'>
     </script>
+
+
 
     <script>
         $('.message a').click(function(){
